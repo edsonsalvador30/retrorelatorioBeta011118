@@ -17,23 +17,23 @@ import org.springframework.transaction.annotation.*;
  * 
  * @generated
  */
-@Repository("UserDAO")
+@Repository("PedidoDAO")
 @Transactional(transactionManager="app-TransactionManager")
-public interface UserDAO extends JpaRepository<User, java.lang.String> {
+public interface PedidoDAO extends JpaRepository<Pedido, java.lang.String> {
 
   /**
-   * Obtém a instância de User utilizando os identificadores
+   * Obtém a instância de Pedido utilizando os identificadores
    * 
    * @param id
    *          Identificador 
    * @return Instância relacionada com o filtro indicado
    * @generated
    */    
-  @Query("SELECT entity FROM User entity WHERE entity.id = :id")
-  public User findOne(@Param(value="id") java.lang.String id);
+  @Query("SELECT entity FROM Pedido entity WHERE entity.id = :id")
+  public Pedido findOne(@Param(value="id") java.lang.String id);
 
   /**
-   * Remove a instância de User utilizando os identificadores
+   * Remove a instância de Pedido utilizando os identificadores
    * 
    * @param id
    *          Identificador 
@@ -41,7 +41,7 @@ public interface UserDAO extends JpaRepository<User, java.lang.String> {
    * @generated
    */    
   @Modifying
-  @Query("DELETE FROM User entity WHERE entity.id = :id")
+  @Query("DELETE FROM Pedido entity WHERE entity.id = :id")
   public void delete(@Param(value="id") java.lang.String id);
 
 
@@ -50,7 +50,7 @@ public interface UserDAO extends JpaRepository<User, java.lang.String> {
    * OneToMany Relation
    * @generated
    */
-  @Query("SELECT entity FROM Role entity WHERE entity.user.id = :id")
-  public Page<Role> findRole(@Param(value="id") java.lang.String id, Pageable pageable);
+  @Query("SELECT entity FROM Produto entity WHERE entity.pedido.id = :id")
+  public Page<Produto> findProduto(@Param(value="id") java.lang.String id, Pageable pageable);
 
 }
